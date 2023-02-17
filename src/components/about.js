@@ -6,7 +6,7 @@ const About = () => {
       <!-- about wrapper -->
       <div   class="about">
           <div class="about-img-holder">
-              <img src="../../meyawo/public_html/assets/imgs/remove-img.png" class="about-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+              <img src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg" class="about-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
           </div>
           <div class="about-caption">
               <p class="section-subtitle">Who Am I ?</p>
