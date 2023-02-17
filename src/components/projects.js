@@ -20,7 +20,7 @@ const Projects = () => {
               (project) =>
                 `<div class="col-md-4">
                 <a target="_blank" href="https://github.com/Linh-203/du_an_1-Nhom8-.git" class="portfolio-card">
-                  <img src="../../meyawo/public_html/assets/imgs/projects4.png" class="portfolio-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
+                  <img src="${project.gallery}" class="portfolio-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
                   <span class="portfolio-card-overlay">
                       <span class="portfolio-card-caption">
                           <h4>${project.name}</h5>

@@ -1,16 +1,18 @@
 {
   "projects": [
     {
-      "name": "Pepsico",
-      "id": 1
+      "name": "cong chua bong bong",
+      "gallery": [
+        "https://res.cloudinary.com/dychym88x/image/upload/v1676564760/Portfolio_Cv/ehaolesyffs4rysf9xae.jpg"
+      ],
+      "id": 5
     },
     {
-      "name": "Long lanh Sink",
-      "id": 3
-    },
-    {
-      "name": "High Tech",
-      "id": 4
+      "name": "cong chua bong bong",
+      "gallery": [
+        "https://res.cloudinary.com/dychym88x/image/upload/v1676564809/Portfolio_Cv/v7rnozpe3kp4tg8vdda7.jpg"
+      ],
+      "id": 6
     }
   ]
 }
