@@ -27,14 +27,18 @@ const ProjectsPage = () => {
     }
   });
   // 2
-  return `<div>
-        <h1>Quản lý dự án</h1>
-        <table class="table table-bordered">
+  return `
+  
+      <h1 style="margin-top:2%;text-align: center;">Quản lý dự án</h1>
+      <a class="btn btn-primary" href="/admin/projects/add">Thêm</a>
+        <table style="margin-top:3%;text-align:center" class="table table-bordered">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Tên dự án</th>
-                    <th></th>
+                    <th>Link Url</th>
+                    <th>Ảnh dự án</th>
+                    <th>Action</th>
                 </tr>
             </thead>
         <tbody>
@@ -44,11 +48,18 @@ const ProjectsPage = () => {
                 <tr>
                     <td>${index + 1}</td>
                     <td>${project.name}</td>
+                    <td>${project.url}</td>
+                    <td id="adminImg"><img src="${
+                      project.gallery
+                    }" alt=""> </td>
                     <td>
                         <button data-id="${
                           project.id
                         }" class="btn btn-remove btn-danger">Remove</button>
-                        <a href="/admin/projects/${project.id}/edit">Sửa</a>
+                        <a class="btn btn-primary" href="/admin/projects/${
+                          project.id
+                        }/edit">Sửa</a>
+                       
                     </td>
                 </tr>
             `
@@ -56,16 +67,8 @@ const ProjectsPage = () => {
               .join("")}
             
         </tbody>
-    </div>`;
+        </table>
+    `;
 };
 
 export default ProjectsPage;
-
-// JSON: parse va stringify
-// localStorage.getItem(key) => vi du: JSON.parse(localStorage.get('a'))
-// localStorage.setItem(key, JSON.stringify(value));
-
-// Bước 1: npm i -g json-server
-// Bước 2: truy cập vào root folder gõ : json-server --watch db.json
-// Nếu lỗi: truy cập https://angular.io/guide/setup-local
-// copy dòng: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned

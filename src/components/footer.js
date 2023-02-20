@@ -3,7 +3,7 @@ const Footer = () => {
         <footer>
         <div class="container">
         <footer class="footer">       
-            <p class="mb-0">Designed and made with ❤ by V.Linh &copy; <script>document.write(new Date().getFullYear())</script> </p>
+            <p class="mb-0">Designed and made with ❤ by V.Linh &copy <script>document.write(new Date().getFullYear())</script> </p>
             <div class="social-links text-right m-auto ml-sm-auto">
                 <a href="#" class="link"><i class="ti-facebook"></i></a>
                 <a href="#" class="link"><i class="ti-twitter-alt"></i></a>

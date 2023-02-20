@@ -6,6 +6,7 @@ const ProjectAdd = () => {
     const form = document.querySelector("#form-add");
     const name = document.querySelector("#name");
     const image = document.querySelector("#projects-images");
+    const url = document.querySelector("#projects-url");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -13,7 +14,9 @@ const ProjectAdd = () => {
       const formData = {
         name: name.value,
         gallery: urls,
+        url: url.value,
       };
+      console.log(urls);
       fetch("http://localhost:3000/projects", {
         method: "POST",
         headers: {
@@ -26,9 +29,9 @@ const ProjectAdd = () => {
 
   const uploadFiles = async (files) => {
     if (files) {
-      const CLOUD_NAME = "dychym88x";
-      const PRESET_NAME = "up-load-image";
-      const FOLDER_NAME = "Portfolio-Cv";
+      const CLOUD_NAME = "dv6o1dqnx";
+      const PRESET_NAME = "portfolio";
+      const FOLDER_NAME = "Portfolio";
       const urls = [];
       const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
@@ -50,15 +53,36 @@ const ProjectAdd = () => {
       return urls;
     }
   };
-  return `<div>
-        <form id="form-add">
-            <label for="">Tên Projects</label>
-            <input type="text" id="name" class="border" />
-            <label for="">ảnh Projects</label>
-            <input type="file" multiple id="projects-images" class="border" />
-            <button class="btn btn-primary">Thêm</button>
-          </form>
-    </div>`;
-};
+  return `
+    <h1 style="margin-top:2%;text-align: center;">Add Project</h1>
+    
+    <div class="containerForm">
+      <form id="form-add">
+        <div class="group">
+          <input type="text" id="name" class="border" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Project Name</label>
+        </div>
 
+        <div class="group">
+          <input type="file" multiple id="projects-images" class="border" />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Project Images</label>
+        </div>
+
+        <div class="group">
+          <input type="url" id="projects-url" class="border" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Project Url</label>
+        </div>
+
+        
+        <button class="btn btn-primary">Thêm</button>
+      </form>
+    </div>
+    `;
+};
 export default ProjectAdd;
