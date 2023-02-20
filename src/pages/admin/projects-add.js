@@ -17,7 +17,7 @@ const ProjectAdd = () => {
         url: url.value,
       };
       console.log(urls);
-      fetch("https://4103ww-3000.preview.csb.app/projects", {
+      fetch("http://localhost:3000/projects", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

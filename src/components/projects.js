@@ -4,7 +4,7 @@ import { useEffect, useState } from "../lib";
 const Projects = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://4103ww-3000.preview.csb.app/projects")
+    fetch("http://localhost:3000/projects")
       .then((response) => response.json())
       .then((data) => setData(data));
   }, []); // điều kiện để gọi lại useEffect

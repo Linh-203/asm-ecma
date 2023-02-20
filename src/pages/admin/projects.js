@@ -4,7 +4,7 @@ const ProjectsPage = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://4103ww-3000.preview.csb.app/projects")
+    fetch("http://localhost:3000/projects")
       .then((response) => response.json())
       .then((data) => setData(data));
   }, []); // điều kiện để gọi lại useEffect
@@ -20,7 +20,7 @@ const ProjectsPage = () => {
 
         // xóa server
 
-        fetch(`https://4103ww-3000.preview.csb.app/projects/${id}`, {
+        fetch(`http://localhost:3000/projects/${id}`, {
           method: "DELETE",
         }).then(() => alert("Xóa thành công"));
       });

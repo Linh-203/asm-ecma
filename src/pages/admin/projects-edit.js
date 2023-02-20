@@ -4,7 +4,7 @@ const ProjectEdit = ({ id }) => {
   const [project, setProject] = useState({});
 
   useEffect(() => {
-    fetch("https://4103ww-3000.preview.csb.app/projects/" + id)
+    fetch("http://localhost:3000/projects/" + id)
       .then((response) => response.json())
       .then((data) => setProject(data));
   }, []);
@@ -21,7 +21,7 @@ const ProjectEdit = ({ id }) => {
         url: url.value,
         gallery: urls,
       };
-      fetch("https://4103ww-3000.preview.csb.app/projects/" + id, {
+      fetch("http://localhost:3000/projects/" + id, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
