@@ -18,7 +18,7 @@ const About = () => {
               <div class="row">
                   <div class="col-lg-6">
                     <ul>
-                      <li><i class="fa-solid fa-chevron-right"></i><strong>Website:</strong> <span>https://vlinh.vercel.app</span></li>
+                      <li><i class="fa-solid fa-chevron-right"></i><strong>Website:</strong> <span><a target="_blank" href="https://vlinh.vercel.app">https://vlinh.vercel.app</a></span></li>
                       <li><i class="fa-solid fa-chevron-right"></i> <strong>Phone:</strong> <span>0363831003</span></li>
                       <li><i class="fa-solid fa-chevron-right"></i><strong>Nghề nghiệp:</strong> <span>Web developer</span></li>
                     </ul>
