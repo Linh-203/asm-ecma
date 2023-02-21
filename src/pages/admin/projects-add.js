@@ -7,9 +7,44 @@ const ProjectAdd = () => {
     const name = document.querySelector("#name");
     const image = document.querySelector("#projects-images");
     const url = document.querySelector("#projects-url");
-
+    // Truy cập vào các ô span
+    const errorNameEle = document.getElementById("error-name");
+    const errorUrlEle = document.getElementById("error-url");
+    const errorImageEle = document.getElementById("error-images");
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      let nameValue = name.value;
+      let urlValue = url.value;
+
+      // Validate dữ liệu trong các ô input và highlight
+      // Kiểm tra trường username
+      if (nameValue.length == "") {
+        errorNameEle.innerHTML = "Usename không được bỏ trống";
+      } else {
+        errorNameEle.innerHTML = "";
+      }
+      // Kiểm tra trường url
+      if (urlValue.length == "") {
+        errorUrlEle.innerHTML = "Url không được bỏ trống";
+      } else {
+        errorUrlEle.innerHTML = "";
+      }
+      // Kiểm tra trường images
+
+      var fileInput = document.getElementById("projects-images");
+
+      var filePath = fileInput.value;
+
+      // Kiểm tra kiểu file
+      var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+      if (!allowedExtensions.exec(filePath)) {
+        errorImageEle.innerHTML = "File không hợp lệ";
+        fileInput.value = "";
+        return false;
+      }
+
+      //---------------------------
       const urls = await uploadFiles(image.files);
       const formData = {
         name: name.value,
@@ -53,29 +88,26 @@ const ProjectAdd = () => {
       return urls;
     }
   };
-  return `
+  return /*html*/ `
     <h1 style="margin-top:2%;text-align: center;">Add Project</h1>
     
     <div class="containerForm">
       <form id="form-add">
         <div class="group">
-          <input type="text" id="name" class="border" required />
-          <span class="highlight"></span>
-          <span class="bar"></span>
+          <input type="text" id="name" class="border"  />
+          <span style="color:red;" id="error-name"> </span>                
           <label>Project Name</label>
         </div>
 
         <div class="group">
-          <input type="file" multiple id="projects-images" class="border" />
-          <span class="highlight"></span>
-          <span class="bar"></span>
+          <input type="file" id="projects-images" class="border "  />
+          <span style="color:red;" id="error-images"> </span> 
           <label>Project Images</label>
         </div>
 
         <div class="group">
-          <input type="url" id="projects-url" class="border" required />
-          <span class="highlight"></span>
-          <span class="bar"></span>
+          <input type="url" id="projects-url" class="border"  />
+          <span style="color:red;" id="error-url"> </span> 
           <label>Project Url</label>
         </div>
 

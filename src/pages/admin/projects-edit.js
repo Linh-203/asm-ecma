@@ -13,8 +13,43 @@ const ProjectEdit = ({ id }) => {
     const name = document.querySelector("#name");
     const url = document.querySelector("#url");
     const image = document.querySelector("#images");
+    // Truy cập vào các ô span
+    const errorNameEle = document.getElementById("error-name");
+    const errorUrlEle = document.getElementById("error-url");
+    const errorImageEle = document.getElementById("error-images");
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      let nameValue = name.value;
+      let urlValue = url.value;
+      // Validate dữ liệu trong các ô input và highlight
+      // Kiểm tra trường username
+      if (nameValue.length == "") {
+        errorNameEle.innerHTML = "Usename không được bỏ trống";
+      } else {
+        errorNameEle.innerHTML = "";
+      }
+      // Kiểm tra trường url
+      if (urlValue.length == "") {
+        errorUrlEle.innerHTML = "Url không được bỏ trống";
+      } else {
+        errorUrlEle.innerHTML = "";
+      }
+      // Kiểm tra trường images
+
+      var fileInput = document.getElementById("images");
+
+      var filePath = fileInput.value;
+
+      // Allowing file type
+      var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+      if (!allowedExtensions.exec(filePath)) {
+        errorImageEle.innerHTML = "File không hợp lệ";
+        fileInput.value = "";
+        return false;
+      }
+
+      //---------------------------
       const urls = await uploadFiles(image.files);
       const formData = {
         name: name.value,
@@ -34,9 +69,9 @@ const ProjectEdit = ({ id }) => {
   });
   const uploadFiles = async (files) => {
     if (files) {
-      const CLOUD_NAME = "dychym88x";
-      const PRESET_NAME = "up-load-image";
-      const FOLDER_NAME = "Portfolio-Cv";
+      const CLOUD_NAME = "dv6o1dqnx";
+      const PRESET_NAME = "portfolio";
+      const FOLDER_NAME = "Portfolio";
       const urls = [];
       const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
@@ -58,28 +93,25 @@ const ProjectEdit = ({ id }) => {
       return urls;
     }
   };
-  return `
-    <h1 style="margin-top:2%;text-align: center;">Edit dự án</h1>
+  return /*html*/ `
+    <h1 style="margin-top:2%;text-align: center;">Edit Project</h1>
     <div class="containerForm">
       <form id="form-edit">
         <div class="group">
-          <input type="text" id="name" class="border" value="${project.name}" required />
-          <span class="highlight"></span>
-          <span class="bar"></span>
+          <input type="text" id="name" class="border" value="${project.name}"  />
+          <span style="color:red;" id="error-name"> </span> 
           <label>Project Name</label>
         </div>
 
         <div class="group">
-          <input type="file" multiple id="images" class="border" value="${project.gallery}" />
-          <span class="highlight"></span>
-          <span class="bar"></span>
+          <input type="file" multiple id="images" class="border" value="${project.gallery} " />
+          <span style="color:red;" id="error-images"> </span> 
           <label>Project Images</label>
         </div>
 
         <div class="group">
-          <input style="width: 350px;" type="url" id="url" class="border" value="${project.url}" required />
-          <span class="highlight"></span>
-          <span class="bar"></span>
+          <input style="width: 350px;" type="url" id="url" class="border" value="${project.url}"  />
+          <span style="color:red;" id="error-url"> </span> 
           <label>Project Url</label>
         </div>
 

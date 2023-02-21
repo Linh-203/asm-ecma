@@ -30,7 +30,7 @@ const ProjectsPage = () => {
   return `
   
       <h1 style="margin-top:2%;text-align: center;">Quản lý dự án</h1>
-      <a class="btn btn-primary" href="/admin/projects/add">Thêm</a>
+      <a id="btn-add-new" class="btn btn-primary" href="/admin/projects/add">Thêm</a>
         <table style="margin-top:3%;text-align:center" class="table table-bordered">
             <thead>
                 <tr>
@@ -55,7 +55,7 @@ const ProjectsPage = () => {
                     <td>
                         <button data-id="${
                           project.id
-                        }" class="btn btn-remove btn-danger">Remove</button>
+                        }" class="btn btn-remove btn-danger">Xóa</button>
                         <a class="btn btn-primary" href="/admin/projects/${
                           project.id
                         }/edit">Sửa</a>
